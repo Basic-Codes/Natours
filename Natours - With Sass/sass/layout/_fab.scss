@@ -1,0 +1,78 @@
+.fab {
+    &__checkbox {
+        display: none;
+    }
+
+    &__label {
+        background-color: rgb(38, 231, 125);
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.356);
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+
+        position: fixed;
+        bottom: 7rem;
+        left: 7rem;
+        z-index: 102;
+
+        text-align: center;
+        cursor: pointer;
+    }
+    &__icon {
+        position: relative;
+        color: white;
+        
+        &::before {
+            position: absolute;
+            bottom: -30px;
+            left: -15px;
+            transition: transform .5s;
+        }
+    }
+    &__checkbox:checked + &__label &__icon::before {
+        transform: rotate(135deg);
+    }
+
+
+    &__list {
+        list-style: none;
+        text-align: center;
+
+        position: absolute;
+        bottom: 70px;
+        left: -20px;
+
+        &__item {
+            margin: 2rem;
+            background-color: tomato;
+            border-radius: 7px;
+            transition: all .5s;
+
+            position: relative;
+            transform: translate(-50rem 10rem);
+
+            left: -300px;
+
+            opacity: 0;
+            width: 100%;
+        }
+    }
+    &__button {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 500;
+        padding: 1rem 2rem;
+        color: white;
+        text-decoration: none;
+
+        transition: all .4s;
+    }
+
+    &__checkbox:checked + &__label &__list &__list__item {
+        /*Making List Items visible*/
+        opacity: 1;
+        // width: 100%;
+
+        left: 0px;
+    }
+}
